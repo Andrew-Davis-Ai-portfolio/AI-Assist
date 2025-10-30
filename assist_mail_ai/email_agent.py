@@ -48,3 +48,4 @@ if __name__ == "__main__":
     print(f"Time: {result['timestamp']}")
     print(f"Subject: {result['subject']}\n")
     print(f"{result['email']}")
+python assist_mail_ai/email_agent.py

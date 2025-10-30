@@ -1,51 +1,40 @@
-import os
-import openai
-from datetime import datetime
+# assist_mail_ai/email_agent.py
+from pathlib import Path
+from typing import Dict, Tuple
 
-openai.api_key = os.getenv("OPENAI_API_KEY")
+TEMPLATE_FILE = Path(__file__).with_name("templates") / "default_email.txt"
 
-def generate_email(recipient_name, company, offer, sender_name):
-    prompt = f"""
-    Write a professional outreach email:
+def load_template() -> str:
+    if not TEMPLATE_FILE.exists():
+        raise FileNotFoundError(f"Template not found at {TEMPLATE_FILE}")
+    return TEMPLATE_FILE.read_text(encoding="utf-8")
 
-    To: {recipient_name} at {company}
-    Offer: {offer}
-    From: {sender_name}
+def render(text: str, ctx: Dict[str, str]) -> str:
+    # Simple {{placeholder}} replacement; leaves unknown placeholders as-is
+    out = text
+    for k, v in ctx.items():
+        out = out.replace(f"{{{{{k}}}}}", str(v))
+    return out
 
-    Tone: Confident, clear, business professional
-    Keep it under 160 words.
-    Include a strong call-to-action.
+def preview_email(ctx: Dict[str, str]) -> Tuple[str, str]:
     """
+    Renders the template and returns (subject, body) WITHOUT sending.
+    Subject is the first line if it starts with 'Subject:'; otherwise blank.
+    """
+    raw = render(load_template(), ctx)
+    lines = raw.splitlines()
+    subject = ""
+    if lines and lines[0].strip().lower().startswith("subject:"):
+        subject = lines[0].split(":", 1)[1].strip()
+        body = "\n".join(lines[1:]).lstrip("\n")
+    else:
+        body = raw
+    return subject, body
 
-    response = openai.ChatCompletion.create(
-        model="gpt-4o-mini",
-        messages=[
-            {"role": "system", "content": "You are a professional outreach assistant."},
-            {"role": "user", "content": prompt}
-        ],
-        temperature=0.7
-    )
-
-    email_text = response.choices[0].message.content.strip()
-    timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
-
-    return {
-        "timestamp": timestamp,
-        "subject": f"Opportunity: {offer}",
-        "email": email_text
-    }
-
-
-if __name__ == "__main__":
-    recipient = input("Recipient name: ")
-    company = input("Company: ")
-    offer = input("Offer details: ")
-    sender = input("Your name: ")
-
-    result = generate_email(recipient, company, offer, sender)
-
-    print("\n----- EMAIL GENERATED -----")
-    print(f"Time: {result['timestamp']}")
-    print(f"Subject: {result['subject']}\n")
-    print(f"{result['email']}")
-python assist_mail_ai/email_agent.py
+def print_preview(ctx: Dict[str, str]) -> None:
+    subject, body = preview_email(ctx)
+    print("=" * 72)
+    print(f"SUBJECT: {subject}")
+    print("-" * 72)
+    print(body)
+    print("=" * 72)

@@ -1,0 +1,17 @@
+TITLE: Venue Outreach (Artist Booking)
+SUBJECT: {artist} — booking inquiry for {city} ({date_window})
+---
+Hello {recipient_name},
+
+I manage {artist}. We’re routing dates through {city} in {date_window} and would love to play your room.
+
+Quick info:
+• Draw: {draw}
+• Set length: {set_length}
+• Tech: {tech}
+
+Link pack (music, live, socials) available on request. Budget: {budget}.
+Are any holds open? Happy to share EPK and confirm details.
+
+Best,
+{sender_name}

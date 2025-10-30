@@ -12,3 +12,4 @@ Your AI-powered outreach assistant for music & business communication.
 
 ---
 Created for autonomous deployment from iPhone. 🔥
+OPENAI_API_KEY=your_api_key_here

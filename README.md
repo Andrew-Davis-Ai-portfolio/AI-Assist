@@ -34,3 +34,12 @@ so talent stays creative while the Assistant handles the paperwork.
 
 **“I am here to Assist.”**  
 — AI-Assist Team ⚡
+python-dotenv
+requests
+openai
+pandas
+pdfkit
+jinja2
+python-docx
+airtable-python-wrapper
+google-api-python-client

@@ -1,0 +1,17 @@
+Subject: Quick Collaboration Opportunity
+
+Hi {{recipient_name}},
+
+My name is {{artist_name}} — I’m reaching out with an opportunity to collaborate.
+Here are recent highlights:
+• {{bullet_1}}
+• {{bullet_2}}
+• {{bullet_3}}
+
+Let me know a good time for a quick call.
+Looking forward to connecting!
+
+Best,  
+{{artist_name}}
+{{contact_email}}
+{{social_link}}

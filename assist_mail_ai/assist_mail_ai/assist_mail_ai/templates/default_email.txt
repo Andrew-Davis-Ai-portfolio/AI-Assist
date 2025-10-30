@@ -1,17 +1,19 @@
-Subject: Quick Collaboration Opportunity
+Subject: {{subject}}
 
 Hi {{recipient_name}},
 
-My name is {{artist_name}} — I’m reaching out with an opportunity to collaborate.
-Here are recent highlights:
-• {{bullet_1}}
-• {{bullet_2}}
-• {{bullet_3}}
+{{intro}}
 
-Let me know a good time for a quick call.
-Looking forward to connecting!
+{{pitch}}
 
-Best,  
-{{artist_name}}
-{{contact_email}}
-{{social_link}}
+Links:
+- Live: {{link_1}}
+- Video: {{link_2}}
+
+Proposed dates: {{dates}}
+Fee / Rider: {{fee}}
+
+Best,
+{{your_name}}
+{{your_role}}
+{{contact}}

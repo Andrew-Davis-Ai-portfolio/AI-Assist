@@ -1,19 +1,11 @@
-Subject: {{subject}}
+Subject: Opportunity to Collaborate
 
 Hi {{recipient_name}},
 
-{{intro}}
+My name is {{sender_name}}. I’m reaching out regarding {{offer}} with {{company}}.  
+I’d love to discuss how we can collaborate and create something valuable together.
 
-{{pitch}}
+If you’re open, let’s connect this week.
 
-Links:
-- Live: {{link_1}}
-- Video: {{link_2}}
-
-Proposed dates: {{dates}}
-Fee / Rider: {{fee}}
-
-Best,
-{{your_name}}
-{{your_role}}
-{{contact}}
+Respectfully,  
+{{sender_name}}

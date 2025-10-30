@@ -1,0 +1,10 @@
+TITLE: General Outreach
+SUBJECT: Quick intro — {sender_name}
+---
+Hello {recipient_name},
+
+Hope you’re well. I’m reaching out regarding {topic}. 
+If it’s relevant, I’d love to share a short overview and next steps.
+
+Best,
+{sender_name}
